@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>天气</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+  <link rel="stylesheet" href="css/mui.css" />
+  <link rel="stylesheet" href="css/font_weathericon.css" />
+  <script src="js/mui.js"></script>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="http://api.map.baidu.com/api?v=2.0&ak=uffzBtbfznLBxmmykxZa9T83Tot2wr6P"></script>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+    }
+
+    .weapanel {
+      height: 100%;
+      width: 100%;
+      background-color: #000000;
+      background-image: url(img/yu.jpg);
+      background-size: 100% 100%;
+    }
+
+    /*天气信息区*/
+    .weatemp {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-flow: column;
+      height: 30%;
+    }
+
+    .tempicon {
+      font-size: 4rem;
+      height: 80px;
+      width: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #EEEEEE;
+      /* font-weight: bolder; */
+      text-shadow: 0px 0px 1px #555555;
+    }
+
+    .temptext {
+      height: 60px;
+      width: 100px;
+      line-height: 60px;
+      text-align: center;
+      font-size: 3rem;
+      color: #fff;
+      text-shadow: 0px 0px 1px #555555;
+    }
+
+    .tempair {
+      width: 200px;
+      text-align: center;
+      color: #777777;
+      text-shadow: 0px 0px 1px #555555;
+    }
+
+    /* 当前城市名 */
+    .weacity {
+      height: 10%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-flow: column;
+    }
+
+    .cityname {
+      color: #EEEEEE;
+      text-shadow: 0px 0px 1px #555555;
+      width: 100px;
+      text-align: center;
+    }
+
+    .cityupdate {
+      color: #EEEEEE;
+      text-shadow: 0px 0px 1px #555555;
+      width: 200px;
+      font-size: 0.65rem;
+      text-align: center;
+    }
+
+    /* 未来5天天气预报 */
+    .wealist {
+      height: 60%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <script type="text/javascript">
+    mui.init()
+  </script>
+  <!-- <header class="mui-bar mui-bar-nav">
+		<h1 class="mui-title">轻天气</h1>
+	</header> -->
+  <div class="weapanel">
+    <div class="weatemp">
+      <div class="tempicon iconfont"></div>
+      <div class="temptext"></div>
+      <div class="tempair"></div>
+    </div>
+    <div class="weacity">
+      <div class="cityname mui-icon mui-icon-location"></div>
+      <div class="cityupdate">上次更新时间: <span class="NTime"></span></div>
+    </div>
+    <div class="wealist"></div>
+  </div>
+
+  <script src="js/lbsModel.js"></script>
+  <script src="js/watherModel.js"></script>
+  <script src="js/weatherService.js"></script>
+  <script>
+    var myDate = new Date();
+    var mytime = myDate.toLocaleTimeString();     //获取当前时间
+    // console.log('mytime :', mytime);
+    $('.NTime').text(mytime)
+
+  </script>
+
+</body>
+
+</html>
